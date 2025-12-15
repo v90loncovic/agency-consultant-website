@@ -7,15 +7,17 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
 import { contact, booking, pageMeta } from "@/config/siteConfig";
+import { useBookCall } from "@/contexts/BookCallContext";
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { openBookCall } = useBookCall();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
+    // TODO: Integrate email sending service
     await new Promise((resolve) => setTimeout(resolve, 1000));
     
     toast({
@@ -175,14 +177,8 @@ const Contact = () => {
                 <p className="text-muted-foreground mb-6">
                   {booking.ctaDescription}
                 </p>
-                <Button variant="accent" asChild>
-                  <a
-                    href={booking.calendlyUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {booking.ctaLabel}
-                  </a>
+                <Button variant="accent" onClick={openBookCall}>
+                  {booking.ctaLabel}
                 </Button>
               </div>
             </div>

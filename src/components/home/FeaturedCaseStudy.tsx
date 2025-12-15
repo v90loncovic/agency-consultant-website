@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { featuredCaseStudy } from "@/config/siteConfig";
+import { useBookCall } from "@/contexts/BookCallContext";
 
 export function FeaturedCaseStudy() {
+  const { openBookCall } = useBookCall();
+
   return (
     <section className="py-24 section-padding bg-primary text-primary-foreground">
       <div className="container-wide">

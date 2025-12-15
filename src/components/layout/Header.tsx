@@ -4,11 +4,13 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { brand, navigation } from "@/config/siteConfig";
+import { useBookCall } from "@/contexts/BookCallContext";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { openBookCall } = useBookCall();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,8 +64,8 @@ export function Header() {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <Button variant="accent" asChild>
-              <Link to={navigation.cta.href}>{navigation.cta.label}</Link>
+            <Button variant="accent" onClick={openBookCall}>
+              {navigation.cta.label}
             </Button>
           </div>
 
@@ -99,8 +101,8 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            <Button variant="accent" className="mt-4" asChild>
-              <Link to={navigation.cta.href}>{navigation.cta.label}</Link>
+            <Button variant="accent" className="mt-4" onClick={openBookCall}>
+              {navigation.cta.label}
             </Button>
           </div>
         </div>

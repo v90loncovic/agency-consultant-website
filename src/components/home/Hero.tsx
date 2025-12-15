@@ -1,9 +1,12 @@
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { hero } from "@/config/siteConfig";
+import { useBookCall } from "@/contexts/BookCallContext";
+import { Link } from "react-router-dom";
 
 export function Hero() {
+  const { openBookCall } = useBookCall();
+
   return (
     <section className="min-h-screen flex items-center pt-24 pb-16 section-padding">
       <div className="container-wide">
@@ -17,11 +20,9 @@ export function Hero() {
             {hero.subheadline}
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-4 opacity-0 animate-fade-up animation-delay-300">
-            <Button variant="accent" size="lg" asChild>
-              <Link to={hero.primaryCta.href}>
-                {hero.primaryCta.label}
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
+            <Button variant="accent" size="lg" onClick={openBookCall}>
+              {hero.primaryCta.label}
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button variant="outline" size="lg" asChild>
               <Link to={hero.secondaryCta.href}>{hero.secondaryCta.label}</Link>

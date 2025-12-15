@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { ctaSections, navigation } from "@/config/siteConfig";
+import { useBookCall } from "@/contexts/BookCallContext";
 
 export function CTABand() {
+  const { openBookCall } = useBookCall();
+
   return (
     <section className="py-24 section-padding">
       <div className="container-wide">
@@ -15,11 +18,9 @@ export function CTABand() {
             {ctaSections.home.description}
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button variant="accent" size="lg" asChild>
-              <Link to={navigation.cta.href}>
-                {navigation.cta.label}
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+            <Button variant="accent" size="lg" onClick={openBookCall}>
+              {navigation.cta.label}
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button
               variant="outline"
