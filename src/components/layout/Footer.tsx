@@ -1,21 +1,5 @@
 import { Link } from "react-router-dom";
-
-const footerLinks = {
-  company: [
-    { href: "/about", label: "About" },
-    { href: "/services", label: "Services" },
-    { href: "/case-studies", label: "Case Studies" },
-    { href: "/contact", label: "Contact" },
-  ],
-  resources: [
-    { href: "/getting-started", label: "Getting Started" },
-    { href: "/contact", label: "Support" },
-  ],
-  legal: [
-    { href: "#", label: "Privacy Policy" },
-    { href: "#", label: "Terms of Service" },
-  ],
-};
+import { brand, footer, socialLinks } from "@/config/siteConfig";
 
 export function Footer() {
   return (
@@ -25,10 +9,10 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link to="/" className="text-2xl font-display font-semibold">
-              GoLive
+              {brand.name}
             </Link>
             <p className="mt-4 text-primary-foreground/70 text-sm leading-relaxed max-w-xs">
-              We help ambitious brands transform their digital presence and achieve measurable growth.
+              {footer.description}
             </p>
           </div>
 
@@ -38,7 +22,7 @@ export function Footer() {
               Company
             </h4>
             <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
+              {footer.links.company.map((link) => (
                 <li key={link.href}>
                   <Link
                     to={link.href}
@@ -57,7 +41,7 @@ export function Footer() {
               Resources
             </h4>
             <ul className="space-y-3">
-              {footerLinks.resources.map((link) => (
+              {footer.links.resources.map((link) => (
                 <li key={link.href}>
                   <Link
                     to={link.href}
@@ -76,7 +60,7 @@ export function Footer() {
               Legal
             </h4>
             <ul className="space-y-3">
-              {footerLinks.legal.map((link) => (
+              {footer.links.legal.map((link) => (
                 <li key={link.href}>
                   <Link
                     to={link.href}
@@ -93,33 +77,20 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-primary-foreground/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-primary-foreground/50 text-sm">
-            © {new Date().getFullYear()} GoLive Agency. All rights reserved.
+            © {new Date().getFullYear()} {brand.name} Agency. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary-foreground/50 hover:text-primary-foreground transition-colors text-sm"
-            >
-              Twitter
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary-foreground/50 hover:text-primary-foreground transition-colors text-sm"
-            >
-              LinkedIn
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary-foreground/50 hover:text-primary-foreground transition-colors text-sm"
-            >
-              Instagram
-            </a>
+            {socialLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-foreground/50 hover:text-primary-foreground transition-colors text-sm"
+              >
+                {link.name}
+              </a>
+            ))}
           </div>
         </div>
       </div>

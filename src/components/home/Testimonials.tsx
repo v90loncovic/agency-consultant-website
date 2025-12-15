@@ -1,22 +1,5 @@
 import { Quote } from "lucide-react";
-
-const testimonials = [
-  {
-    quote: "GoLive transformed how we think about our brand. The results speak for themselves—our pipeline has never been stronger.",
-    author: "Sarah Chen",
-    title: "CEO, Vertex Analytics",
-  },
-  {
-    quote: "Working with GoLive felt like having an elite team embedded in our company. They understood our market better than we did.",
-    author: "Marcus Thompson",
-    title: "Founder, Streamline",
-  },
-  {
-    quote: "The ROI on our engagement was clear within 90 days. GoLive delivers on their promises.",
-    author: "Elena Rodriguez",
-    title: "CMO, DataPulse",
-  },
-];
+import { testimonials } from "@/config/siteConfig";
 
 export function Testimonials() {
   return (

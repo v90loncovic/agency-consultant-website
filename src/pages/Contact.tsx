@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
+import { contact, booking, pageMeta } from "@/config/siteConfig";
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -33,10 +34,10 @@ const Contact = () => {
         <div className="container-wide">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium leading-tight text-foreground mb-6 opacity-0 animate-fade-up">
-              Let's talk
+              {pageMeta.contact.headline}
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed opacity-0 animate-fade-up animation-delay-200">
-              Ready to transform your brand? Book a free strategy call or send us a message. We respond to every inquiry within 24 hours.
+              {pageMeta.contact.subheadline}
             </p>
           </div>
         </div>
@@ -49,7 +50,7 @@ const Contact = () => {
             {/* Form */}
             <div className="opacity-0 animate-fade-up animation-delay-200">
               <h2 className="text-2xl font-display font-medium text-foreground mb-8">
-                Send us a message
+                {contact.formTitle}
               </h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -130,10 +131,10 @@ const Contact = () => {
                   <div>
                     <h3 className="font-medium text-foreground mb-1">Email</h3>
                     <a
-                      href="mailto:hello@golive.agency"
+                      href={`mailto:${contact.email}`}
                       className="text-muted-foreground hover:text-foreground transition-colors"
                     >
-                      hello@golive.agency
+                      {contact.email}
                     </a>
                   </div>
                 </div>
@@ -144,10 +145,10 @@ const Contact = () => {
                   <div>
                     <h3 className="font-medium text-foreground mb-1">Phone</h3>
                     <a
-                      href="tel:+14155551234"
+                      href={`tel:${contact.phone.replace(/\s/g, '')}`}
                       className="text-muted-foreground hover:text-foreground transition-colors"
                     >
-                      +1 (415) 555-1234
+                      {contact.phone}
                     </a>
                   </div>
                 </div>
@@ -158,9 +159,9 @@ const Contact = () => {
                   <div>
                     <h3 className="font-medium text-foreground mb-1">Office</h3>
                     <p className="text-muted-foreground">
-                      548 Market Street, Suite 12345
+                      {contact.address.street}
                       <br />
-                      San Francisco, CA 94104
+                      {contact.address.city}, {contact.address.state} {contact.address.zip}
                     </p>
                   </div>
                 </div>
@@ -169,18 +170,18 @@ const Contact = () => {
               {/* Book a call CTA */}
               <div className="mt-12 p-8 bg-secondary rounded-lg">
                 <h3 className="text-xl font-display font-medium text-foreground mb-3">
-                  Prefer to talk live?
+                  {booking.ctaTitle}
                 </h3>
                 <p className="text-muted-foreground mb-6">
-                  Schedule a free 30-minute strategy call with our team.
+                  {booking.ctaDescription}
                 </p>
                 <Button variant="accent" asChild>
                   <a
-                    href="https://calendly.com"
+                    href={booking.calendlyUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Book a Call
+                    {booking.ctaLabel}
                   </a>
                 </Button>
               </div>
