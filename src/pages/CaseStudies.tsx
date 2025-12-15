@@ -224,10 +224,10 @@ const CaseStudies = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="pt-32 pb-16 section-padding">
+      <section className="pt-36 pb-20 section-padding">
         <div className="container-wide">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium leading-tight text-foreground mb-6 opacity-0 animate-fade-up">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium leading-tight text-foreground mb-8 opacity-0 animate-fade-up">
               {pageMeta.caseStudies.headline}
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed opacity-0 animate-fade-up animation-delay-200">
@@ -238,9 +238,9 @@ const CaseStudies = () => {
       </section>
 
       {/* Case Studies Grid */}
-      <section className="py-16 section-padding">
+      <section className="py-20 section-padding">
         <div className="container-wide">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
             {caseStudies.map((study, index) => (
               <div
                 key={study.id}
@@ -254,18 +254,18 @@ const CaseStudies = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-24 section-padding">
+      <section className="py-28 section-padding">
         <div className="container-wide">
-          <div className="bg-primary rounded-2xl p-12 md:p-16 text-center">
-            <h2 className="text-3xl md:text-4xl font-display font-medium text-primary-foreground mb-6">
+          <div className="bg-primary rounded-2xl p-12 md:p-20 text-center">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-medium text-primary-foreground mb-6">
               {ctaSections.caseStudies.title}
             </h2>
-            <p className="text-primary-foreground/70 text-lg max-w-2xl mx-auto mb-10">
+            <p className="text-primary-foreground/70 text-lg max-w-2xl mx-auto mb-12">
               {ctaSections.caseStudies.description}
             </p>
-            <Button variant="accent" size="lg" onClick={openBookCall}>
+            <Button variant="accent" size="lg" onClick={openBookCall} className="shadow-lg">
               {navigation.cta.label}
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </div>
         </div>
