@@ -184,21 +184,31 @@ export const process = {
 // CASE STUDIES
 // ============================================================
 export interface CaseStudy {
+  id: string;
   client: string;
   industry: string;
   title: string;
   description: string;
+  thumbnail?: string;
+  primaryMetric: { label: string; value: string };
   metrics: { label: string; value: string }[];
   tags: string[];
   featured: boolean;
+  // Modal content
+  problem: string;
+  approach: string;
+  result: string;
+  deliverables: string[];
 }
 
 export const caseStudies: CaseStudy[] = [
   {
+    id: "vertex-analytics",
     client: "Vertex Analytics",
     industry: "Enterprise Software",
     title: "Scaling to $50M ARR with a Complete Brand Transformation",
     description: "We repositioned Vertex from a generic analytics tool to the definitive enterprise platform, driving 340% growth in qualified leads.",
+    primaryMetric: { label: "Lead increase", value: "+340%" },
     metrics: [
       { label: "Lead increase", value: "340%" },
       { label: "Conversion rate", value: "2.4x" },
@@ -206,12 +216,23 @@ export const caseStudies: CaseStudy[] = [
     ],
     tags: ["Brand Strategy", "Web Development", "Growth Marketing"],
     featured: true,
+    problem: "Vertex had a powerful analytics platform but was struggling to differentiate in a crowded market. Their brand felt generic, and enterprise buyers couldn't understand their unique value proposition.",
+    approach: "We conducted extensive market research and competitor analysis. We repositioned Vertex as the 'enterprise-grade' solution with a complete visual overhaul, new messaging framework, and a website redesign focused on conversion.",
+    result: "Within 6 months, Vertex saw a 340% increase in qualified leads and achieved their $50M ARR target ahead of schedule. The new positioning opened doors to Fortune 500 accounts.",
+    deliverables: [
+      "Complete brand strategy and positioning",
+      "Visual identity system and guidelines",
+      "High-conversion website design and development",
+      "Sales enablement materials and pitch deck",
+    ],
   },
   {
+    id: "streamline",
     client: "Streamline",
     industry: "Fintech",
     title: "Launching a Fintech Disruptor in 90 Days",
     description: "From concept to market-ready brand, we helped Streamline enter a crowded market with a distinctive presence.",
+    primaryMetric: { label: "Seed funding", value: "$12M" },
     metrics: [
       { label: "Time to market", value: "90 days" },
       { label: "Seed funding", value: "$12M" },
@@ -219,12 +240,23 @@ export const caseStudies: CaseStudy[] = [
     ],
     tags: ["Brand Strategy", "Visual Identity", "Product Design"],
     featured: false,
+    problem: "Streamline's founders had a revolutionary payment processing idea but needed a complete brand and digital presence to attract investors and early adopters in a highly regulated market.",
+    approach: "We ran an accelerated brand sprint, developing positioning, visual identity, and product design in parallel. Our team worked embedded with founders to ensure regulatory compliance while maintaining a fresh, approachable feel.",
+    result: "Streamline launched in 90 days, closed a $12M seed round within 60 days of launch, and acquired 15,000+ users in the first quarter. The brand became a case study for fintech startups.",
+    deliverables: [
+      "Brand strategy and naming",
+      "Visual identity and UI kit",
+      "Product design (mobile and web apps)",
+      "Investor pitch materials",
+    ],
   },
   {
+    id: "datapulse",
     client: "DataPulse",
     industry: "Healthcare Tech",
     title: "Redefining Healthcare Data for Enterprise Buyers",
     description: "A complete rebrand and digital overhaul that positioned DataPulse as the trusted partner for healthcare organizations.",
+    primaryMetric: { label: "Pipeline growth", value: "+280%" },
     metrics: [
       { label: "Pipeline growth", value: "280%" },
       { label: "Sales cycle", value: "-40%" },
@@ -232,12 +264,23 @@ export const caseStudies: CaseStudy[] = [
     ],
     tags: ["Brand Strategy", "Web Development", "Content Strategy"],
     featured: false,
+    problem: "DataPulse had strong technology but their brand felt clinical and cold. Enterprise healthcare buyers needed to trust them with sensitive data, but the brand didn't inspire confidence.",
+    approach: "We developed a 'trusted partner' positioning that balanced professionalism with warmth. The new website featured case studies, security certifications prominently, and a content strategy focused on thought leadership.",
+    result: "The rebrand led to 280% pipeline growth, shortened sales cycles by 40%, and doubled average contract values. DataPulse is now recognized as a category leader.",
+    deliverables: [
+      "Brand repositioning and messaging",
+      "Website redesign with compliance focus",
+      "Content marketing strategy and execution",
+      "Sales collateral and case study templates",
+    ],
   },
   {
+    id: "nexus",
     client: "Nexus",
     industry: "B2B SaaS",
     title: "Building a Category-Defining Brand from Scratch",
     description: "We partnered with Nexus from day one to create a brand that would define a new category in workflow automation.",
+    primaryMetric: { label: "Brand awareness", value: "+450%" },
     metrics: [
       { label: "Brand awareness", value: "+450%" },
       { label: "Website traffic", value: "8x" },
@@ -245,6 +288,63 @@ export const caseStudies: CaseStudy[] = [
     ],
     tags: ["Brand Strategy", "Visual Identity", "Web Development"],
     featured: false,
+    problem: "Nexus was entering a nascent market for workflow automation. They needed to educate the market while positioning themselves as the obvious leader—before competitors could establish themselves.",
+    approach: "We created category-defining messaging, positioning Nexus not just as a tool but as a movement. The bold visual identity and content strategy focused on thought leadership and community building.",
+    result: "Nexus achieved 450% brand awareness growth in their target market, drove 8x website traffic, and saw demo requests increase by 320%. They're now the recognized category leader.",
+    deliverables: [
+      "Category creation strategy",
+      "Bold visual identity system",
+      "Community-focused website",
+      "Thought leadership content program",
+    ],
+  },
+  {
+    id: "elevate-consulting",
+    client: "Elevate Consulting",
+    industry: "Professional Services",
+    title: "Modernizing a Legacy Consulting Firm",
+    description: "We helped a 30-year-old consulting firm reinvent their brand for the digital age without losing their heritage.",
+    primaryMetric: { label: "New client inquiries", value: "+180%" },
+    metrics: [
+      { label: "New inquiries", value: "+180%" },
+      { label: "Talent applications", value: "3x" },
+      { label: "Client NPS", value: "+25 pts" },
+    ],
+    tags: ["Brand Strategy", "Visual Identity", "Web Development"],
+    featured: false,
+    problem: "Elevate Consulting had 30 years of expertise but their brand felt dated. They were losing pitches to newer, digitally-savvy competitors and struggling to attract top talent.",
+    approach: "We honored their heritage while modernizing every touchpoint. The new brand balanced gravitas with approachability, and the digital experience showcased their thought leadership and case studies.",
+    result: "New client inquiries increased 180%, talent applications tripled, and client NPS improved by 25 points. Partners credited the rebrand with revitalizing firm culture.",
+    deliverables: [
+      "Brand refresh maintaining heritage",
+      "Modern visual identity system",
+      "Content-rich website with partner profiles",
+      "Recruitment marketing materials",
+    ],
+  },
+  {
+    id: "quantum-labs",
+    client: "Quantum Labs",
+    industry: "Deep Tech",
+    title: "Making Quantum Computing Accessible",
+    description: "We translated complex quantum technology into compelling brand communications that resonated with both technical and business audiences.",
+    primaryMetric: { label: "Enterprise deals", value: "+200%" },
+    metrics: [
+      { label: "Enterprise deals", value: "+200%" },
+      { label: "Media coverage", value: "50+ outlets" },
+      { label: "Conference leads", value: "4x" },
+    ],
+    tags: ["Brand Strategy", "Content Strategy", "Web Development"],
+    featured: false,
+    problem: "Quantum Labs had groundbreaking technology but struggled to communicate its value to non-technical buyers. Their materials were too complex for business decision-makers.",
+    approach: "We developed a layered communication strategy: simple narratives for executives, detailed specs for technical teams. The brand balanced 'cutting-edge' with 'practical business value.'",
+    result: "Enterprise deal flow increased 200%, media coverage expanded to 50+ outlets, and conference lead generation quadrupled. Quantum Labs became the 'explainer' brand in quantum computing.",
+    deliverables: [
+      "Multi-audience messaging framework",
+      "Explanatory video series",
+      "Technical and executive websites",
+      "Conference booth and materials design",
+    ],
   },
 ];
 
