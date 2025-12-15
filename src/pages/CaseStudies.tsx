@@ -1,9 +1,8 @@
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 import { ArrowRight, X } from "lucide-react";
 import { caseStudies, pageMeta, ctaSections, navigation } from "@/config/siteConfig";
-import { useState, useEffect, useCallback } from "react";
+import { useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -13,6 +12,7 @@ import {
   DialogClose,
 } from "@/components/ui/dialog";
 import type { CaseStudy } from "@/config/siteConfig";
+import { useBookCall } from "@/contexts/BookCallContext";
 
 function CaseStudyCard({ study, onOpenModal }: { study: CaseStudy; onOpenModal: (study: CaseStudy) => void }) {
   return (
@@ -84,24 +84,14 @@ function CaseStudyModal({
   isOpen: boolean;
   onClose: () => void;
 }) {
-  // Handle ESC key
-  const handleEscKey = useCallback(
-    (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        onClose();
-      }
-    },
-    [onClose]
-  );
-
-  useEffect(() => {
-    if (isOpen) {
-      document.addEventListener("keydown", handleEscKey);
-      return () => document.removeEventListener("keydown", handleEscKey);
-    }
-  }, [isOpen, handleEscKey]);
+  const { openBookCall } = useBookCall();
 
   if (!study) return null;
+
+  const handleBookCall = () => {
+    onClose();
+    setTimeout(() => openBookCall(), 200);
+  };
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
@@ -205,11 +195,9 @@ function CaseStudyModal({
             <p className="text-muted-foreground text-sm mb-4">
               Let's discuss how we can help transform your business.
             </p>
-            <Button variant="accent" asChild>
-              <Link to={navigation.cta.href} onClick={onClose}>
-                {navigation.cta.label}
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+            <Button variant="accent" onClick={handleBookCall}>
+              {navigation.cta.label}
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
         </div>
@@ -221,6 +209,7 @@ function CaseStudyModal({
 const CaseStudies = () => {
   const [selectedStudy, setSelectedStudy] = useState<CaseStudy | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { openBookCall } = useBookCall();
 
   const handleOpenModal = (study: CaseStudy) => {
     setSelectedStudy(study);
@@ -274,11 +263,9 @@ const CaseStudies = () => {
             <p className="text-primary-foreground/70 text-lg max-w-2xl mx-auto mb-10">
               {ctaSections.caseStudies.description}
             </p>
-            <Button variant="accent" size="lg" asChild>
-              <Link to={navigation.cta.href}>
-                {navigation.cta.label}
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+            <Button variant="accent" size="lg" onClick={openBookCall}>
+              {navigation.cta.label}
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
         </div>

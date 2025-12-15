@@ -1,10 +1,12 @@
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { gettingStarted, ctaSections, navigation } from "@/config/siteConfig";
+import { useBookCall } from "@/contexts/BookCallContext";
 
 const GettingStarted = () => {
+  const { openBookCall } = useBookCall();
+
   return (
     <Layout>
       {/* Hero */}
@@ -121,11 +123,9 @@ const GettingStarted = () => {
           <p className="text-primary-foreground/70 text-lg max-w-2xl mx-auto mb-10">
             {ctaSections.gettingStarted.description}
           </p>
-          <Button variant="accent" size="lg" asChild>
-            <Link to={navigation.cta.href}>
-              {navigation.cta.label}
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
+          <Button variant="accent" size="lg" onClick={openBookCall}>
+            {navigation.cta.label}
+            <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>
       </section>
