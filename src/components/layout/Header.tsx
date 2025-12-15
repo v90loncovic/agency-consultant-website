@@ -30,7 +30,7 @@ export function Header() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-sm py-4"
+          ? "bg-background/98 backdrop-blur-md shadow-sm py-4"
           : "bg-transparent py-6"
       )}
     >
@@ -45,7 +45,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-10">
             {navigation.links.map((link) => (
               <Link
                 key={link.href}
@@ -54,7 +54,7 @@ export function Header() {
                   "text-sm font-medium transition-colors link-underline",
                   location.pathname === link.href
                     ? "text-foreground"
-                    : "text-muted-foreground hover:text-foreground"
+                    : "text-foreground/70 hover:text-foreground"
                 )}
               >
                 {link.label}
@@ -64,7 +64,7 @@ export function Header() {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <Button variant="accent" onClick={openBookCall}>
+            <Button variant="accent" size="default" onClick={openBookCall} className="shadow-sm hover:shadow-md transition-shadow">
               {navigation.cta.label}
             </Button>
           </div>
@@ -95,7 +95,7 @@ export function Header() {
                   "text-lg font-medium py-2 transition-colors",
                   location.pathname === link.href
                     ? "text-foreground"
-                    : "text-muted-foreground"
+                    : "text-foreground/70"
                 )}
               >
                 {link.label}

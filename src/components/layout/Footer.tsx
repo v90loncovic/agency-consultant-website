@@ -4,8 +4,8 @@ import { brand, footer, socialLinks } from "@/config/siteConfig";
 export function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
-      <div className="section-padding container-wide py-16 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="section-padding container-wide py-20 md:py-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link to="/" className="text-2xl font-display font-semibold">
