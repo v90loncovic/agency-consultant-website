@@ -14,6 +14,9 @@ import {
   MessageSquare,
   Settings,
   Zap,
+  Sparkles,
+  Layers,
+  Mail,
   LucideIcon
 } from "lucide-react";
 
@@ -545,88 +548,120 @@ export const about = {
 };
 
 // ============================================================
-// GETTING STARTED PAGE
+// GETTING STARTED PAGE (Template Customization Guide)
 // ============================================================
 export const gettingStarted = {
-  headline: "Getting started",
-  subheadline: "Everything you need to know about working with GoLive. From first call to long-term partnership, here's what to expect.",
-  process: {
-    title: "The process",
-    steps: [
-      {
-        icon: BookOpen,
-        title: "1. Discovery Call",
-        description: "We start with a 30-minute call to understand your business, goals, and challenges. Come prepared to discuss your vision and current pain points.",
-      },
-      {
-        icon: Users,
-        title: "2. Strategy Session",
-        description: "For qualified opportunities, we schedule a deeper strategy session. We'll audit your current presence and identify high-impact opportunities.",
-      },
-      {
-        icon: Settings,
-        title: "3. Custom Proposal",
-        description: "We prepare a tailored proposal with scope, timeline, and investment. No cookie-cutter solutions—every engagement is custom.",
-      },
-      {
-        icon: Rocket,
-        title: "4. Kickoff",
-        description: "Once aligned, we kick off with a comprehensive onboarding process. You'll meet your dedicated team and establish communication rhythms.",
-      },
-      {
-        icon: Zap,
-        title: "5. Execution",
-        description: "We work in focused sprints with regular check-ins. You'll have visibility into progress and opportunities for feedback throughout.",
-      },
-      {
-        icon: MessageSquare,
-        title: "6. Launch & Beyond",
-        description: "We don't just deliver and disappear. Post-launch support ensures your investment continues generating returns.",
-      },
-    ],
+  headline: "Customize your template",
+  subheadline: "Everything you need to make this template your own. Most changes can be made in one file: src/config/siteConfig.ts",
+  configPath: "src/config/siteConfig.ts",
+  sections: [
+    {
+      icon: Palette,
+      title: "1. Brand & Logo",
+      description: "Update your agency name, tagline, and description.",
+      code: `// Find the 'brand' object
+export const brand = {
+  name: "Your Agency",
+  tagline: "Your tagline here",
+  description: "Your description...",
+  foundedYear: 2024,
+};`,
+      tip: "For the logo, replace the text in Header.tsx or add your logo image to src/assets/",
+    },
+    {
+      icon: Sparkles,
+      title: "2. Hero & CTAs",
+      description: "Change the main headline and call-to-action buttons.",
+      code: `// Find the 'hero' object
+export const hero = {
+  headline: "Your headline",
+  subheadline: "Your subheadline...",
+  primaryCta: { label: "Get Started", href: "#" },
+  secondaryCta: { label: "View Work", href: "/case-studies" },
+};`,
+      tip: "Keep headlines concise—under 10 words works best.",
+    },
+    {
+      icon: Layers,
+      title: "3. Services & Process",
+      description: "Define your service offerings and how you work.",
+      code: `// Find the 'services' array
+export const services: Service[] = [
+  {
+    icon: Globe,
+    title: "Service Name",
+    description: "What you do...",
+    features: ["Feature 1", "Feature 2"],
   },
-  expectations: {
-    fromClient: {
-      title: "What we need from you",
-      subtitle: "Great partnerships require commitment from both sides. Here's what we ask of our clients:",
-      items: [
-        "A dedicated point of contact with decision-making authority",
-        "Access to stakeholders for research and feedback sessions",
-        "Timely feedback on deliverables (within 3-5 business days)",
-        "Transparency about budget, timeline, and internal constraints",
-        "Trust in our expertise and process",
-      ],
-    },
-    fromUs: {
-      title: "What you get from us",
-      subtitle: "Our commitment to every client, regardless of engagement size:",
-      items: [
-        "Senior team members on every project—no bait-and-switch",
-        "Regular status updates and transparent communication",
-        "Work that meets the highest standards of quality",
-        "Strategic thinking, not just task execution",
-        "Post-launch support and optimization",
-      ],
-    },
-  },
-  faqs: [
-    {
-      question: "What should I prepare for the discovery call?",
-      answer: "Come ready to discuss your business model, target audience, current challenges, and goals for the engagement. If you have brand assets, analytics, or competitive research, those are helpful but not required.",
+];`,
+      tip: "Use icons from lucide-react. Import them at the top of the file.",
     },
     {
-      question: "How long until I see results?",
-      answer: "Timeline varies by engagement type. Brand strategy work typically shows impact within 60-90 days. Web development projects launch in 6-16 weeks. Growth marketing campaigns start generating data within the first month.",
+      icon: BarChart3,
+      title: "4. Case Studies & Metrics",
+      description: "Showcase your best work with real results.",
+      code: `// Find the 'caseStudies' array
+{
+  id: "unique-id",
+  client: "Client Name",
+  industry: "Industry",
+  title: "Project Title",
+  summary: "Brief description...",
+  primaryMetric: "+50% growth",
+  metrics: ["Metric 1", "Metric 2"],
+  tags: ["Tag1", "Tag2"],
+  problem: "The challenge...",
+  approach: "How you solved it...",
+  result: "The outcome...",
+  deliverables: ["Item 1", "Item 2"],
+}`,
+      tip: "Lead with your strongest metrics. Numbers build trust.",
     },
     {
-      question: "Do you offer retainer arrangements?",
-      answer: "Yes. Many clients transition to ongoing retainers after initial project work. Retainers provide continued access to our team for strategy, optimization, and new initiatives.",
+      icon: MessageSquare,
+      title: "5. Testimonials & FAQ",
+      description: "Add social proof and answer common questions.",
+      code: `// Find 'testimonials' and 'faqs' arrays
+testimonials: [
+  { quote: "...", author: "Name", title: "Role, Company" }
+]
+faqs: [
+  { question: "...", answer: "..." }
+]`,
+      tip: "3-5 testimonials is ideal. Keep FAQ answers concise.",
     },
     {
-      question: "What if we're not the right fit?",
-      answer: "No hard feelings. If we're not the right partner for your needs, we'll tell you honestly and try to point you toward better-suited resources.",
+      icon: Mail,
+      title: "6. Contact & Booking",
+      description: "Set up your contact info and booking link.",
+      code: `// Find 'contact' and 'booking' objects
+export const contact = {
+  email: "hello@youragency.com",
+  phone: "+1 (555) 000-0000",
+  address: "Your City, Country",
+};
+
+export const booking = {
+  calendlyUrl: "https://calendly.com/your-link",
+};`,
+      tip: "The booking URL can link to Calendly, Cal.com, or any scheduling tool.",
     },
   ],
+  publishChecklist: {
+    title: "Before you publish",
+    items: [
+      { label: "Test on mobile devices", description: "Check all pages at different screen sizes" },
+      { label: "Verify all links work", description: "Navigation, CTAs, and footer links" },
+      { label: "Test the contact form", description: "Submit a test request and check localStorage" },
+      { label: "Update meta titles", description: "Edit pageMeta in siteConfig.ts for SEO" },
+      { label: "Add your favicon", description: "Replace public/favicon.ico with your logo" },
+      { label: "Review all placeholder text", description: "Search for 'Lorem' or sample content" },
+    ],
+  },
+  footer: {
+    title: "You're ready!",
+    description: "That's it—you've got everything you need. Most customization happens in one file, making updates fast and painless.",
+  },
 };
 
 // ============================================================
