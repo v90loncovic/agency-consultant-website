@@ -1,38 +1,6 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Lightbulb, Palette, Rocket, BarChart3, Code, Users } from "lucide-react";
-
-const services = [
-  {
-    icon: Lightbulb,
-    title: "Brand Strategy",
-    description: "Define your market position and craft a narrative that resonates with your ideal customers.",
-  },
-  {
-    icon: Palette,
-    title: "Visual Identity",
-    description: "Create distinctive brand systems that communicate your values at every touchpoint.",
-  },
-  {
-    icon: Code,
-    title: "Web Development",
-    description: "Build high-performance websites and applications that convert visitors into customers.",
-  },
-  {
-    icon: BarChart3,
-    title: "Growth Marketing",
-    description: "Data-driven campaigns that accelerate customer acquisition and retention.",
-  },
-  {
-    icon: Rocket,
-    title: "Product Design",
-    description: "User-centered design that creates intuitive digital experiences people love.",
-  },
-  {
-    icon: Users,
-    title: "Content Strategy",
-    description: "Develop compelling content that builds authority and drives organic growth.",
-  },
-];
+import { ArrowRight } from "lucide-react";
+import { services } from "@/config/siteConfig";
 
 export function ServicesOverview() {
   return (

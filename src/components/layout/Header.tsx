@@ -3,14 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/case-studies", label: "Case Studies" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-];
+import { brand, navigation } from "@/config/siteConfig";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -46,12 +39,12 @@ export function Header() {
             to="/"
             className="text-2xl font-display font-semibold tracking-tight text-foreground"
           >
-            GoLive
+            {brand.name}
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
+            {navigation.links.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
@@ -70,7 +63,7 @@ export function Header() {
           {/* CTA Button */}
           <div className="hidden lg:block">
             <Button variant="accent" asChild>
-              <Link to="/contact">Book a Call</Link>
+              <Link to={navigation.cta.href}>{navigation.cta.label}</Link>
             </Button>
           </div>
 
@@ -92,7 +85,7 @@ export function Header() {
           )}
         >
           <div className="flex flex-col gap-4 pb-6">
-            {navLinks.map((link) => (
+            {navigation.links.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
@@ -107,7 +100,7 @@ export function Header() {
               </Link>
             ))}
             <Button variant="accent" className="mt-4" asChild>
-              <Link to="/contact">Book a Call</Link>
+              <Link to={navigation.cta.href}>{navigation.cta.label}</Link>
             </Button>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { hero } from "@/config/siteConfig";
 
 export function Hero() {
   return (
@@ -8,22 +9,22 @@ export function Hero() {
       <div className="container-wide">
         <div className="max-w-4xl">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-medium leading-[1.1] tracking-tight text-foreground opacity-0 animate-fade-up">
-            We build brands that
+            {hero.headline}
             <br />
-            <span className="text-gradient">move markets.</span>
+            <span className="text-gradient">{hero.headlineAccent}</span>
           </h1>
           <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed opacity-0 animate-fade-up animation-delay-200">
-            GoLive is a strategic creative agency for ambitious companies ready to transform their digital presence and capture market leadership.
+            {hero.subheadline}
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-4 opacity-0 animate-fade-up animation-delay-300">
             <Button variant="accent" size="lg" asChild>
-              <Link to="/contact">
-                Book a Call
+              <Link to={hero.primaryCta.href}>
+                {hero.primaryCta.label}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
             <Button variant="outline" size="lg" asChild>
-              <Link to="/case-studies">View Our Work</Link>
+              <Link to={hero.secondaryCta.href}>{hero.secondaryCta.label}</Link>
             </Button>
           </div>
         </div>

@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
+import { brand } from "@/config/siteConfig";
 
 const NotFound = () => {
   const location = useLocation();
@@ -25,7 +26,7 @@ const NotFound = () => {
           <Button variant="accent" asChild>
             <Link to="/">
               <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Home
+              Back to {brand.name}
             </Link>
           </Button>
         </div>

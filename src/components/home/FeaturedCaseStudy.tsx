@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { featuredCaseStudy } from "@/config/siteConfig";
 
 export function FeaturedCaseStudy() {
   return (
@@ -9,31 +10,25 @@ export function FeaturedCaseStudy() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <span className="text-sm uppercase tracking-widest text-primary-foreground/50 mb-4 block">
-              Featured Case Study
+              {featuredCaseStudy.label}
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-medium mb-6">
-              How we helped Vertex scale to $50M ARR
+              {featuredCaseStudy.title}
             </h2>
             <p className="text-primary-foreground/70 text-lg leading-relaxed mb-8">
-              A complete brand transformation and digital overhaul that positioned Vertex as the market leader in enterprise analytics, driving 340% growth in qualified leads.
+              {featuredCaseStudy.description}
             </p>
             <div className="flex flex-wrap gap-8 mb-10">
-              <div>
-                <span className="text-3xl font-display font-medium">340%</span>
-                <p className="text-sm text-primary-foreground/50 mt-1">Lead increase</p>
-              </div>
-              <div>
-                <span className="text-3xl font-display font-medium">2.4x</span>
-                <p className="text-sm text-primary-foreground/50 mt-1">Conversion rate</p>
-              </div>
-              <div>
-                <span className="text-3xl font-display font-medium">$50M</span>
-                <p className="text-sm text-primary-foreground/50 mt-1">ARR achieved</p>
-              </div>
+              {featuredCaseStudy.metrics.map((metric) => (
+                <div key={metric.label}>
+                  <span className="text-3xl font-display font-medium">{metric.value}</span>
+                  <p className="text-sm text-primary-foreground/50 mt-1">{metric.label}</p>
+                </div>
+              ))}
             </div>
             <Button variant="accent" asChild>
-              <Link to="/case-studies">
-                Read the full story
+              <Link to={featuredCaseStudy.ctaHref}>
+                {featuredCaseStudy.ctaLabel}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>

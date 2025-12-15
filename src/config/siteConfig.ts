@@ -1,0 +1,591 @@
+// ============================================================
+// SITE CONFIGURATION
+// Edit this file to customize all content across the site.
+// ============================================================
+
+import { 
+  Lightbulb, 
+  Palette, 
+  Code, 
+  BarChart3, 
+  Rocket, 
+  Users,
+  BookOpen,
+  MessageSquare,
+  Settings,
+  Zap,
+  LucideIcon
+} from "lucide-react";
+
+// ============================================================
+// BRAND
+// ============================================================
+export const brand = {
+  name: "GoLive",
+  tagline: "We build brands that move markets.",
+  description: "GoLive is a strategic creative agency for ambitious companies ready to transform their digital presence and capture market leadership.",
+  foundingYear: 2020,
+};
+
+// ============================================================
+// NAVIGATION
+// ============================================================
+export const navigation = {
+  links: [
+    { href: "/", label: "Home" },
+    { href: "/services", label: "Services" },
+    { href: "/case-studies", label: "Case Studies" },
+    { href: "/about", label: "About" },
+    { href: "/contact", label: "Contact" },
+  ],
+  cta: {
+    label: "Book a Call",
+    href: "/contact",
+  },
+};
+
+// ============================================================
+// HERO SECTION
+// ============================================================
+export const hero = {
+  headline: "We build brands that",
+  headlineAccent: "move markets.",
+  subheadline: "GoLive is a strategic creative agency for ambitious companies ready to transform their digital presence and capture market leadership.",
+  primaryCta: {
+    label: "Book a Call",
+    href: "/contact",
+  },
+  secondaryCta: {
+    label: "View Our Work",
+    href: "/case-studies",
+  },
+};
+
+// ============================================================
+// SOCIAL PROOF / TRUSTED BY
+// ============================================================
+export const socialProof = {
+  title: "Trusted by industry leaders",
+  logos: [
+    { name: "Stripe" },
+    { name: "Notion" },
+    { name: "Figma" },
+    { name: "Linear" },
+    { name: "Vercel" },
+    { name: "Framer" },
+  ],
+};
+
+// ============================================================
+// SERVICES
+// ============================================================
+export interface Service {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  features: string[];
+}
+
+export const services: Service[] = [
+  {
+    icon: Lightbulb,
+    title: "Brand Strategy",
+    description: "Define your market position and craft a narrative that resonates with your ideal customers.",
+    features: [
+      "Competitive analysis & market positioning",
+      "Brand architecture & messaging framework",
+      "Value proposition development",
+      "Customer persona development",
+    ],
+  },
+  {
+    icon: Palette,
+    title: "Visual Identity",
+    description: "Create distinctive brand systems that communicate your values at every touchpoint.",
+    features: [
+      "Logo design & visual identity systems",
+      "Brand guidelines & asset libraries",
+      "Marketing collateral design",
+      "Packaging & environmental design",
+    ],
+  },
+  {
+    icon: Code,
+    title: "Web Development",
+    description: "Build high-performance websites and applications that convert visitors into customers.",
+    features: [
+      "Custom website design & development",
+      "E-commerce platforms",
+      "Web application development",
+      "CMS implementation & optimization",
+    ],
+  },
+  {
+    icon: BarChart3,
+    title: "Growth Marketing",
+    description: "Data-driven campaigns that accelerate customer acquisition and retention.",
+    features: [
+      "Paid media strategy & management",
+      "SEO & content marketing",
+      "Marketing automation",
+      "Analytics & attribution modeling",
+    ],
+  },
+  {
+    icon: Rocket,
+    title: "Product Design",
+    description: "User-centered design that creates intuitive digital experiences people love.",
+    features: [
+      "UX research & strategy",
+      "UI design & prototyping",
+      "Design systems",
+      "Usability testing",
+    ],
+  },
+  {
+    icon: Users,
+    title: "Content Strategy",
+    description: "Develop compelling content that builds authority and drives organic growth.",
+    features: [
+      "Content audit & strategy",
+      "Editorial planning",
+      "Copywriting & storytelling",
+      "Video & multimedia production",
+    ],
+  },
+];
+
+// ============================================================
+// PROCESS
+// ============================================================
+export const process = {
+  title: "Our process",
+  subtitle: "A proven methodology refined over hundreds of successful engagements.",
+  steps: [
+    {
+      number: "01",
+      title: "Discover",
+      description: "We dive deep into your business, market, and audience to uncover insights that inform strategy.",
+    },
+    {
+      number: "02",
+      title: "Design",
+      description: "We craft solutions that balance creativity with commercial objectives, iterating until it's right.",
+    },
+    {
+      number: "03",
+      title: "Deliver",
+      description: "We launch, measure, and optimize—ensuring your investment generates measurable returns.",
+    },
+  ],
+};
+
+// ============================================================
+// CASE STUDIES
+// ============================================================
+export interface CaseStudy {
+  client: string;
+  industry: string;
+  title: string;
+  description: string;
+  metrics: { label: string; value: string }[];
+  tags: string[];
+  featured: boolean;
+}
+
+export const caseStudies: CaseStudy[] = [
+  {
+    client: "Vertex Analytics",
+    industry: "Enterprise Software",
+    title: "Scaling to $50M ARR with a Complete Brand Transformation",
+    description: "We repositioned Vertex from a generic analytics tool to the definitive enterprise platform, driving 340% growth in qualified leads.",
+    metrics: [
+      { label: "Lead increase", value: "340%" },
+      { label: "Conversion rate", value: "2.4x" },
+      { label: "ARR achieved", value: "$50M" },
+    ],
+    tags: ["Brand Strategy", "Web Development", "Growth Marketing"],
+    featured: true,
+  },
+  {
+    client: "Streamline",
+    industry: "Fintech",
+    title: "Launching a Fintech Disruptor in 90 Days",
+    description: "From concept to market-ready brand, we helped Streamline enter a crowded market with a distinctive presence.",
+    metrics: [
+      { label: "Time to market", value: "90 days" },
+      { label: "Seed funding", value: "$12M" },
+      { label: "User signups", value: "15K+" },
+    ],
+    tags: ["Brand Strategy", "Visual Identity", "Product Design"],
+    featured: false,
+  },
+  {
+    client: "DataPulse",
+    industry: "Healthcare Tech",
+    title: "Redefining Healthcare Data for Enterprise Buyers",
+    description: "A complete rebrand and digital overhaul that positioned DataPulse as the trusted partner for healthcare organizations.",
+    metrics: [
+      { label: "Pipeline growth", value: "280%" },
+      { label: "Sales cycle", value: "-40%" },
+      { label: "Contract value", value: "2x" },
+    ],
+    tags: ["Brand Strategy", "Web Development", "Content Strategy"],
+    featured: false,
+  },
+  {
+    client: "Nexus",
+    industry: "B2B SaaS",
+    title: "Building a Category-Defining Brand from Scratch",
+    description: "We partnered with Nexus from day one to create a brand that would define a new category in workflow automation.",
+    metrics: [
+      { label: "Brand awareness", value: "+450%" },
+      { label: "Website traffic", value: "8x" },
+      { label: "Demo requests", value: "320%" },
+    ],
+    tags: ["Brand Strategy", "Visual Identity", "Web Development"],
+    featured: false,
+  },
+];
+
+// Featured case study for homepage
+export const featuredCaseStudy = {
+  label: "Featured Case Study",
+  client: "Vertex",
+  title: "How we helped Vertex scale to $50M ARR",
+  description: "A complete brand transformation and digital overhaul that positioned Vertex as the market leader in enterprise analytics, driving 340% growth in qualified leads.",
+  metrics: [
+    { label: "Lead increase", value: "340%" },
+    { label: "Conversion rate", value: "2.4x" },
+    { label: "ARR achieved", value: "$50M" },
+  ],
+  ctaLabel: "Read the full story",
+  ctaHref: "/case-studies",
+};
+
+// ============================================================
+// TESTIMONIALS
+// ============================================================
+export interface Testimonial {
+  quote: string;
+  author: string;
+  title: string;
+}
+
+export const testimonials: Testimonial[] = [
+  {
+    quote: "GoLive transformed how we think about our brand. The results speak for themselves—our pipeline has never been stronger.",
+    author: "Sarah Chen",
+    title: "CEO, Vertex Analytics",
+  },
+  {
+    quote: "Working with GoLive felt like having an elite team embedded in our company. They understood our market better than we did.",
+    author: "Marcus Thompson",
+    title: "Founder, Streamline",
+  },
+  {
+    quote: "The ROI on our engagement was clear within 90 days. GoLive delivers on their promises.",
+    author: "Elena Rodriguez",
+    title: "CMO, DataPulse",
+  },
+];
+
+// ============================================================
+// FAQ
+// ============================================================
+export interface FAQ {
+  question: string;
+  answer: string;
+}
+
+export const faqs: FAQ[] = [
+  {
+    question: "What types of companies do you work with?",
+    answer: "We partner with growth-stage startups, established mid-market companies, and enterprise organizations across B2B technology, fintech, healthcare, and professional services. Our sweet spot is companies ready to invest seriously in their brand and digital presence.",
+  },
+  {
+    question: "How long does a typical engagement last?",
+    answer: "Most strategic engagements run 3-6 months depending on scope. Brand strategy and identity projects typically take 8-12 weeks. Web development projects range from 6-16 weeks. We also offer ongoing retainer relationships for companies seeking continuous partnership.",
+  },
+  {
+    question: "What's your pricing model?",
+    answer: "We price based on value and scope, not hours. After our discovery process, we provide fixed-fee proposals so you have complete clarity on investment. Our engagements typically start at $50K for focused projects and scale based on complexity.",
+  },
+  {
+    question: "Do you work with clients outside the US?",
+    answer: "Absolutely. We work with companies globally and have experience navigating cross-cultural branding challenges. Our team is distributed, allowing us to support clients across time zones effectively.",
+  },
+  {
+    question: "What makes GoLive different from other agencies?",
+    answer: "We combine strategic rigor with creative excellence. Unlike pure creative shops, we ground every decision in business outcomes. Unlike consultancies, we execute beautifully. Our senior team leads every engagement—no bait-and-switch with junior staff.",
+  },
+  {
+    question: "How do we get started?",
+    answer: "Start with a discovery call. We'll learn about your business, discuss your goals, and assess fit. If there's mutual alignment, we'll propose a scope and timeline. No lengthy RFP processes required—we move fast.",
+  },
+];
+
+// ============================================================
+// CONTACT & BOOKING
+// ============================================================
+export const contact = {
+  email: "hello@golive.agency",
+  phone: "+1 (415) 555-1234",
+  address: {
+    street: "548 Market Street, Suite 12345",
+    city: "San Francisco",
+    state: "CA",
+    zip: "94104",
+  },
+  formTitle: "Send us a message",
+  formSubtitle: "We respond to every inquiry within 24 hours.",
+};
+
+export const booking = {
+  calendlyUrl: "https://calendly.com", // Replace with your actual Calendly link
+  ctaTitle: "Prefer to talk live?",
+  ctaDescription: "Schedule a free 30-minute strategy call with our team.",
+  ctaLabel: "Book a Call",
+};
+
+// ============================================================
+// SOCIAL LINKS
+// ============================================================
+export const socialLinks = [
+  { name: "Twitter", href: "https://twitter.com" },
+  { name: "LinkedIn", href: "https://linkedin.com" },
+  { name: "Instagram", href: "https://instagram.com" },
+];
+
+// ============================================================
+// FOOTER
+// ============================================================
+export const footer = {
+  description: "We help ambitious brands transform their digital presence and achieve measurable growth.",
+  links: {
+    company: [
+      { href: "/about", label: "About" },
+      { href: "/services", label: "Services" },
+      { href: "/case-studies", label: "Case Studies" },
+      { href: "/contact", label: "Contact" },
+    ],
+    resources: [
+      { href: "/getting-started", label: "Getting Started" },
+      { href: "/contact", label: "Support" },
+    ],
+    legal: [
+      { href: "#", label: "Privacy Policy" },
+      { href: "#", label: "Terms of Service" },
+    ],
+  },
+};
+
+// ============================================================
+// ABOUT PAGE
+// ============================================================
+export const about = {
+  headline: "We're GoLive",
+  subheadline: "A strategic creative agency that helps ambitious companies build brands that capture markets. We combine deep strategic thinking with world-class execution.",
+  story: {
+    title: "Our story",
+    paragraphs: [
+      "GoLive was founded on a simple premise: the best brands are built at the intersection of strategy and creativity. Too often, companies choose between agencies that think well and agencies that design well.",
+      "We started GoLive to prove you don't have to choose. Our team combines deep business acumen with exceptional creative talent, delivering work that's both strategically sound and beautifully executed.",
+      "Since our founding, we've partnered with over 100 companies—from pre-seed startups to public enterprises—helping them clarify their positioning, strengthen their presence, and accelerate their growth.",
+    ],
+  },
+  values: {
+    title: "What we believe",
+    subtitle: "Our values guide every decision we make and every relationship we build.",
+    items: [
+      {
+        title: "Excellence over everything",
+        description: "We don't do 'good enough.' Every deliverable reflects our commitment to craft and quality.",
+      },
+      {
+        title: "Results-obsessed",
+        description: "Beautiful work is meaningless without business impact. We measure success by your growth.",
+      },
+      {
+        title: "Radical honesty",
+        description: "We'll tell you what you need to hear, not what you want to hear. Trust is built on truth.",
+      },
+      {
+        title: "Long-term thinking",
+        description: "We build brands and relationships that compound over time. No shortcuts, no quick fixes.",
+      },
+    ],
+  },
+  team: {
+    title: "Leadership team",
+    subtitle: "Senior professionals who lead every engagement. No bait-and-switch.",
+    members: [
+      {
+        name: "Alexandra Chen",
+        role: "Founder & CEO",
+        bio: "Former McKinsey consultant with 15+ years building brands for Fortune 500 companies and high-growth startups.",
+      },
+      {
+        name: "Marcus Williams",
+        role: "Creative Director",
+        bio: "Award-winning designer who's shaped visual identities for some of the world's most recognized technology brands.",
+      },
+      {
+        name: "Sarah Okonkwo",
+        role: "Head of Strategy",
+        bio: "Brand strategist with a track record of positioning companies for successful exits and market leadership.",
+      },
+      {
+        name: "David Park",
+        role: "Technical Director",
+        bio: "Engineering leader who's built and scaled digital products for companies from seed stage to IPO.",
+      },
+    ],
+  },
+};
+
+// ============================================================
+// GETTING STARTED PAGE
+// ============================================================
+export const gettingStarted = {
+  headline: "Getting started",
+  subheadline: "Everything you need to know about working with GoLive. From first call to long-term partnership, here's what to expect.",
+  process: {
+    title: "The process",
+    steps: [
+      {
+        icon: BookOpen,
+        title: "1. Discovery Call",
+        description: "We start with a 30-minute call to understand your business, goals, and challenges. Come prepared to discuss your vision and current pain points.",
+      },
+      {
+        icon: Users,
+        title: "2. Strategy Session",
+        description: "For qualified opportunities, we schedule a deeper strategy session. We'll audit your current presence and identify high-impact opportunities.",
+      },
+      {
+        icon: Settings,
+        title: "3. Custom Proposal",
+        description: "We prepare a tailored proposal with scope, timeline, and investment. No cookie-cutter solutions—every engagement is custom.",
+      },
+      {
+        icon: Rocket,
+        title: "4. Kickoff",
+        description: "Once aligned, we kick off with a comprehensive onboarding process. You'll meet your dedicated team and establish communication rhythms.",
+      },
+      {
+        icon: Zap,
+        title: "5. Execution",
+        description: "We work in focused sprints with regular check-ins. You'll have visibility into progress and opportunities for feedback throughout.",
+      },
+      {
+        icon: MessageSquare,
+        title: "6. Launch & Beyond",
+        description: "We don't just deliver and disappear. Post-launch support ensures your investment continues generating returns.",
+      },
+    ],
+  },
+  expectations: {
+    fromClient: {
+      title: "What we need from you",
+      subtitle: "Great partnerships require commitment from both sides. Here's what we ask of our clients:",
+      items: [
+        "A dedicated point of contact with decision-making authority",
+        "Access to stakeholders for research and feedback sessions",
+        "Timely feedback on deliverables (within 3-5 business days)",
+        "Transparency about budget, timeline, and internal constraints",
+        "Trust in our expertise and process",
+      ],
+    },
+    fromUs: {
+      title: "What you get from us",
+      subtitle: "Our commitment to every client, regardless of engagement size:",
+      items: [
+        "Senior team members on every project—no bait-and-switch",
+        "Regular status updates and transparent communication",
+        "Work that meets the highest standards of quality",
+        "Strategic thinking, not just task execution",
+        "Post-launch support and optimization",
+      ],
+    },
+  },
+  faqs: [
+    {
+      question: "What should I prepare for the discovery call?",
+      answer: "Come ready to discuss your business model, target audience, current challenges, and goals for the engagement. If you have brand assets, analytics, or competitive research, those are helpful but not required.",
+    },
+    {
+      question: "How long until I see results?",
+      answer: "Timeline varies by engagement type. Brand strategy work typically shows impact within 60-90 days. Web development projects launch in 6-16 weeks. Growth marketing campaigns start generating data within the first month.",
+    },
+    {
+      question: "Do you offer retainer arrangements?",
+      answer: "Yes. Many clients transition to ongoing retainers after initial project work. Retainers provide continued access to our team for strategy, optimization, and new initiatives.",
+    },
+    {
+      question: "What if we're not the right fit?",
+      answer: "No hard feelings. If we're not the right partner for your needs, we'll tell you honestly and try to point you toward better-suited resources.",
+    },
+  ],
+};
+
+// ============================================================
+// PAGE TITLES & META (for SEO)
+// ============================================================
+export const pageMeta = {
+  home: {
+    title: `${brand.name} | Strategic Creative Agency for Growth`,
+    description: brand.description,
+  },
+  services: {
+    title: "Services | " + brand.name,
+    headline: "Services built for growth",
+    subheadline: "End-to-end capabilities designed to help ambitious companies capture market leadership and accelerate growth.",
+  },
+  caseStudies: {
+    title: "Case Studies | " + brand.name,
+    headline: "Work that delivers results",
+    subheadline: "We measure success by the growth of our partners. Explore how we've helped ambitious companies transform their brands and accelerate their trajectory.",
+  },
+  about: {
+    title: "About | " + brand.name,
+  },
+  contact: {
+    title: "Contact | " + brand.name,
+    headline: "Let's talk",
+    subheadline: "Ready to transform your brand? Book a free strategy call or send us a message. We respond to every inquiry within 24 hours.",
+  },
+  gettingStarted: {
+    title: "Getting Started | " + brand.name,
+  },
+};
+
+// ============================================================
+// CTA SECTIONS
+// ============================================================
+export const ctaSections = {
+  services: {
+    title: "Not sure where to start?",
+    description: "Book a free strategy call and we'll help you identify the highest-impact opportunities for your business.",
+  },
+  caseStudies: {
+    title: "Ready to be our next success story?",
+    description: "Let's discuss how we can help you achieve similar results for your business.",
+  },
+  about: {
+    title: "Want to work together?",
+    description: "We're always looking for ambitious projects and talented people. Get in touch.",
+    secondaryCta: {
+      label: "View Open Roles",
+      href: "/contact",
+    },
+  },
+  home: {
+    title: "Ready to transform your brand?",
+    description: "Let's discuss how we can help you achieve your growth objectives. Book a free strategy call with our team.",
+  },
+  gettingStarted: {
+    title: "Ready to get started?",
+    description: "Book a free discovery call and let's explore how we can help you achieve your goals.",
+  },
+};
